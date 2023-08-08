@@ -1,12 +1,15 @@
+import { Card } from "./components/Card/Card";
+import { ProvedorTema } from "./components/ProvedorTema/ProvedorTema";
 import { Styles } from "./components/StylesGlobal/Styles";
-
 
 function App() {
   return (
-    <div>
+    <ProvedorTema>
       <Styles />
-      <h1>Hellow word</h1>
-    </div>
+      <Card>
+        <h1>Freelando</h1>
+      </Card>
+    </ProvedorTema>
   );
 }
 
