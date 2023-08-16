@@ -1,9 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/router";
+import { ProvedorTema } from "./components/ProvedorTema/ProvedorTema";
+import { Estilos } from "./components/EstilosGlobais/Estilos";
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <ProvedorTema>
+      <Estilos />
+      <RouterProvider router={router} />
+    </ProvedorTema>
   )
 }
 
