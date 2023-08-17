@@ -1,4 +1,4 @@
-import { Col, Row } from "react-grid-system"
+import { Col, Container, Row } from "react-grid-system"
 import { Card } from "../../components/Card/Card"
 import { Outlet } from "react-router-dom";
 
@@ -15,7 +15,9 @@ const LayoutBaseCadastro = () => {
                 style={{ margin: "80px 0" }}
             ></Col>
             <Card>
-                <Outlet />
+                <Container>
+                    <Outlet />
+                </Container>
             </Card>
         </Row>
     )
