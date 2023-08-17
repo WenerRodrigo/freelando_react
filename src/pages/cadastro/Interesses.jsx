@@ -3,6 +3,7 @@ import GrupoRadio from "../../components/Radio/GrupoRadio";
 import { Tipografia } from "../../components/Tipografia/Tipografia";
 import { Col, Row } from "react-grid-system";
 import { Botao } from "../../components/Botao/Botao";
+import { Link } from "react-router-dom";
 
 const Interesses = () => {
 
@@ -46,11 +47,15 @@ const Interesses = () => {
             <GrupoRadio opcoes={opcoes} valor={opcao} onChange={setOpcao} />
             <Row>
                 <Col lg={6} md={6} sm={6}>
-                    <Botao variante="secundaria">Anterior</Botao>
+                    <Link to="/cadastro">
+                        <Botao variante="secundaria">Anterior</Botao>
+                    </Link>
                 </Col>
                 <Col lg={6} md={6} sm={6}>
                     <div style={{ textAlign: "right" }}>
-                        <Botao>Próxima</Botao>
+                        <Link to="/cadastro/dados-pessoais">
+                            <Botao>Próxima</Botao>
+                        </Link>
                     </div>
                 </Col>
             </Row>
