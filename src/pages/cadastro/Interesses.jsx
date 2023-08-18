@@ -1,40 +1,49 @@
-import { useState } from "react";
 import GrupoRadio from "../../components/Radio/GrupoRadio";
 import { Tipografia } from "../../components/Tipografia/Tipografia";
 import { Col, Row } from "react-grid-system";
 import { Botao } from "../../components/Botao/Botao";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario";
+import { useEffect } from "react";
+
+const opcoes = [
+    {
+        valor: 1,
+        label: 'TI e Programação',
+    },
+    {
+        valor: 2,
+        label: 'Design e Multimídia',
+    },
+    {
+        valor: 3,
+        label: 'Revisão',
+    },
+    {
+        valor: 4,
+        label: 'Tradução',
+    },
+    {
+        valor: 5,
+        label: 'Transcrição',
+    },
+    {
+        valor: 6,
+        label: 'Marketing',
+    },
+]
 
 const Interesses = () => {
 
-    const opcoes = [
-        {
-            valor: 1,
-            label: 'TI e Programação',
-        },
-        {
-            valor: 2,
-            label: 'Design e Multimídia',
-        },
-        {
-            valor: 3,
-            label: 'Revisão',
-        },
-        {
-            valor: 4,
-            label: 'Tradução',
-        },
-        {
-            valor: 5,
-            label: 'Transcrição',
-        },
-        {
-            valor: 6,
-            label: 'Marketing',
-        },
-    ]
+    const { usuario, setInteresse, possoSelecionarInteresse } = useCadastroUsuarioContext();
 
-    const [opcao, setOpcao] = useState('');
+    const navegar = useNavigate();
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro');
+        }
+    }, [navegar, possoSelecionarInteresse]);
 
     return (
         <div style={{ TextAlign: 'center' }}>
@@ -44,7 +53,7 @@ const Interesses = () => {
             <Tipografia variante="h3" componente="h2">
                 Qual a área de interesse?
             </Tipografia>
-            <GrupoRadio opcoes={opcoes} valor={opcao} onChange={setOpcao} />
+            <GrupoRadio opcoes={opcoes} valor={usuario.interesse} onChange={setInteresse} />
             <Row>
                 <Col lg={6} md={6} sm={6}>
                     <Link to="/cadastro">

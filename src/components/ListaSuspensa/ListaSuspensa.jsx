@@ -94,6 +94,7 @@ export const ListaSupensa = ({ titulo, opcoes }) => {
              estaAberta={estaAberta}
              onClick={() => alternarVisibilidade(!estaAberta)}
              onKeyDown={manipularTeclaDoTeclado}
+             type="button"
         >
             <div>
                 { opcaoSelecionada ? opcaoSelecionada.text : 'Selecione' } 

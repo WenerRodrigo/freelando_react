@@ -57,30 +57,20 @@ const PaginaInicial = () => {
                         <Col>
                             <FreelandoLogo />
                         </Col>
-                        <Col style={{ textAlign: "right" }}>
+                        <Col style={{ textAlign: 'right' }}>
                             <Link>Login</Link>
                         </Col>
                     </Row>
                 </Container>
             </Cabecalho>
             <Row justify="center">
-                <Col
-                    xxx={6}
-                    xxl={6}
-                    xl={6}
-                    lg={6}
-                    md={8}
-                    sm={12}
-                    style={{ margin: "80px 0" }}
-                >
+                <Col xxx={6} xxl={6} xl={6} lg={6} md={8} sm={12} style={{ margin: '80px 0' }}>
                     <Card>
                         <Tipografia variante="h1" componente="h1">
-                            Cadastra-se
+                            Freelando
                         </Tipografia>
                         <Tipografia variante="body" componente="body">
-                            Crie seu perfil gratuitamente para começar a trabalhar com os
-                            melhores freelancers. Em seguida, você poderá dar mais detalhes
-                            sobre suas demandas e sobre sua forma de trabalho.
+                            Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho.
                         </Tipografia>
                         <Row>
                             <Col>
@@ -110,11 +100,15 @@ const PaginaInicial = () => {
                         </Row>
                         <Row>
                             <Col lg={6} md={6} sm={6}>
-                                <Botao variante="secundaria">Anterior</Botao>
+                                <Botao variante="secundaria">
+                                    Anterior
+                                </Botao>
                             </Col>
                             <Col lg={6} md={6} sm={6}>
-                                <div style={{ textAlign: "right" }}>
-                                    <Botao>Próxima</Botao>
+                                <div style={{ textAlign: 'right' }}>
+                                    <Botao>
+                                        Próxima
+                                    </Botao>
                                 </div>
                             </Col>
                         </Row>
@@ -126,14 +120,10 @@ const PaginaInicial = () => {
                     <Row align="center">
                         <Col>
                             <FreelandoLogo height={40} width={176} />
-                            <Tipografia variante="legenda" componente="legenda">
-                                Desenvolvido por Alura. Projeto fictício sem fins comerciais.
-                            </Tipografia>
+                            <Tipografia variante="legenda" componente="legenda">Desenvolvido por Wener Rodrigo. Projeto fictício sem fins comerciais.</Tipografia>
                         </Col>
-                        <Col style={{ textAlign: "right" }}>
-                            <Tipografia variante="legenda" componente="legenda">
-                                Acesse nossas redes:
-                            </Tipografia>
+                        <Col style={{ textAlign: 'right' }}>
+                            <Tipografia variante="legenda" componente="legenda">Acesse nossas redes:</Tipografia>
                             <ListaInline>
                                 <ItemListaInline>
                                     <a href="/" aria-label="Link para o WhatsApp">

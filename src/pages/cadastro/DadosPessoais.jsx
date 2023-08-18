@@ -4,6 +4,7 @@ import { Botao } from "../../components/Botao/Botao";
 import { Link } from "react-router-dom";
 import { CampoTexto } from "../../components/CampoTexto/CampoTexto";
 import { ListaSupensa } from "../../components/ListaSuspensa/ListaSuspensa";
+import { useCadastroUsuarioContext } from "../../contexto/CadastroUsuario";
 
 const estadosBrasileiros = [
     { text: "Acre", value: "AC" },
@@ -36,8 +37,24 @@ const estadosBrasileiros = [
 ];
 
 const DadosPessoais = () => {
+
+    const { usuario,
+        setNomeCompleto,
+        setCidade,
+        setEmail,
+        setSenha,
+        setSenhaConfirmada,
+        setUf,
+        submeterUsuario,
+    } = useCadastroUsuarioContext();
+
+    const finalizarCadastro = (evento) => {
+        evento.preventDefault();
+        submeterUsuario()
+    }
+
     return (
-        <div>
+        <form onSubmit={finalizarCadastro}>
             <div style={{ TextAlign: 'center' }}>
                 <Tipografia variante="h1" componente="h1">
                     Crie seu Cadastro
@@ -50,28 +67,29 @@ const DadosPessoais = () => {
             </div>
             <Row>
                 <Col>
-                    <CampoTexto titulo="Nome Completo" />
+                    <CampoTexto titulo="Nome Completo" valor={usuario.nomeCompleto}
+                        onChange={setNomeCompleto} />
                 </Col>
             </Row>
             <Row>
                 <Col lg={4} md={4} sm={4}>
-                    <ListaSupensa titulo="Estado" opcoes={estadosBrasileiros} />
+                    <ListaSupensa titulo="Estado" opcoes={estadosBrasileiros} valor={usuario.uf} onChange={setUf} />
                 </Col>
                 <Col lg={8} md={8} sm={8}>
-                    <CampoTexto titulo="Cidade" />
+                    <CampoTexto titulo="Cidade" valor={usuario.cidade} onChange={setCidade} />
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <CampoTexto titulo="E-mail" />
+                    <CampoTexto titulo="E-mail" valor={usuario.email} onChange={setEmail} />
                 </Col>
             </Row>
             <Row>
                 <Col lg={6} md={6} sm={6}>
-                    <CampoTexto titulo="Senha" />
+                    <CampoTexto titulo="Senha" valor={usuario.senha} onChange={setSenha} tipo='password' />
                 </Col>
                 <Col lg={6} md={6} sm={6}>
-                    <CampoTexto titulo="Repita a Senha" />
+                    <CampoTexto titulo="Repita a Senha" valor={usuario.senhaConfirmada} onChange={setSenhaConfirmada} tipo='password' />
                 </Col>
             </Row>
             <Row>
@@ -88,7 +106,7 @@ const DadosPessoais = () => {
                     </div>
                 </Col>
             </Row>
-        </div>
+        </form>
     )
 }
 
